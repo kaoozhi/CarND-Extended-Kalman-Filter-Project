@@ -112,7 +112,7 @@ int main() {
 
           // Push the current estimated x,y positon from the Kalman filter's 
           //   state vector
-
+          
           VectorXd estimate(4);
 
           double p_x = fusionEKF.ekf_.x_(0);
@@ -126,9 +126,7 @@ int main() {
           estimate(3) = v2;
         
           estimations.push_back(estimate);
-
           VectorXd RMSE = tools.CalculateRMSE(estimations, ground_truth);
-
           json msgJson;
           msgJson["estimate_x"] = p_x;
           msgJson["estimate_y"] = p_y;
